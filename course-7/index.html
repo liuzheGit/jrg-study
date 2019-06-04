@@ -40,7 +40,7 @@
   <div class="mask"></div>
 </div>
 <main>
-  <div class="main-content">
+  <div class="main-content max-content">
     <div class="content-inner clearfix">
       <div class="user-avator">
         <img src="./images/avatar.jpg" alt="头像">
@@ -90,7 +90,57 @@
   </div>
 </main>
 <section class="download-section">
-  <a href="javascript:void(0);" download="#">下载PDF简历</a>
+  <a href="./resume.pdf" download>下载PDF简历</a>
 </section>
+<section class="profile-info">
+  <p>方应杭， 资深前端工程师，资深前端讲师，现在在 饥人谷 教前端课程。</p>
+  <p>技能：前端开发，Rails 开发，Node.js 开发</p>
+</section>
+<section class="max-content skills">
+  <h2>技能</h2>
+  <ol class="clearfix">
+    <li><h3 class="skill-item">HTML 5 & CSS 3</h3></li>
+    <li><h3 class="skill-item">JavaScript</h3></li>
+    <li><h3 class="skill-item">jQuery</h3></li>
+    <li><h3 class="skill-item">Vue.js</h3></li>
+    <li><h3 class="skill-item">Node.js</h3></li>
+    <li><h3 class="skill-item">React.js</h3></li>
+  </ol>
+</section>
+<section class="max-content portfolio">
+  <h2>作品集</h2>
+  <nav>
+    <ol class="clearfix">
+      <li id="btn1">所有</li>
+      <li id="btn2">框架</li>
+      <li id="btn3">原生JS&CSS</li>
+    </ol>
+    <div id="nav-progress-bar" class="state1"><div class="inner-bar"></div></div>
+  </nav>
+  <div class="works state1" id="show-works">
+    <img src="./images/1.jpg" alt="作品1" class="photo work1 big">
+    <img src="./images/2.jpg" alt="作品2" class="photo work2 small">
+    <img src="./images/3.jpg" alt="作品3" class="photo work3 small">
+  </div>
+</section>
+<script>
+  let stateDiv = document.getElementById('nav-progress-bar');
+  let show = document.getElementById('show-works');
+  let btn1 = document.getElementById('btn1');
+  let btn2 = document.getElementById('btn2');
+  let btn3 = document.getElementById('btn3');
+  btn1.onclick = function(){
+    stateDiv.className = 'state1';
+    show.className = 'works state1';
+  };
+  btn2.onclick = function(){
+    stateDiv.className = 'state2';
+    show.className = 'works state2';
+  };
+  btn3.onclick = function(){
+    stateDiv.className = 'state3';
+    show.className = 'works state3';
+  };
+</script>
 </body>
 </html>

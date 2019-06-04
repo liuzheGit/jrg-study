@@ -2,6 +2,7 @@
   /*box-sizing: border-box;*/
   margin: 0;
   padding: 0;
+  transition: all .5s;
 }
 @font-face {
   font-family: "Fredoka One";
@@ -104,11 +105,13 @@ nav a:hover{
 main{
 
 }
-/*简介主体*/
-main .main-content{
+.max-content{
   max-width: 930px;
   margin-left: auto;
   margin-right: auto;
+}
+/*简介主体*/
+main .main-content{
   /*border: 1px solid red;*/
   margin-top: -340px;
   background: #ffffff;
@@ -193,4 +196,208 @@ main .main-content{
 .main-footer li:hover{
   background: rgba(0, 0, 0, .1);
 }
+/*下载按钮*/
+.download-section{
+  text-align: center;
+  margin: 32px 0;
+}
+.download-section a{
+  padding: 16px 50px;
+  border: 1px solid #cdcfd1;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  transition: box-shadow 0.3s;
+}
+.download-section a:hover{
+  box-shadow: 0px 5px 6px -2px rgba(0,0,0,0.35);
+}
+.profile-info{
+  margin: 15px 0;
+  text-align: center;
+  font-family: "华文行楷", Centaur;
+}
+.profile-info p{
+  line-height: 1.6;
+}
+.max-content h2{
+  text-align: center;
+  font-size: 34px;
+  color: #3d4451;
+  font-weight: 600;
+}
+.skills{
+  padding-top: 30px;
+}
+.skills ol{
+  margin: 40px 0;
+  padding: 40px;
+  background: #fff;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+}
+.skills li{
+  float: left;
+  box-sizing: border-box;
+  width: 50%;
+  padding-right: 20px;
+}
+.skills li:nth-child(even){
+  float: right;
+}
+.skills li h3{
+  position: relative;
+  font-weight: normal;
+}
+.skills .skill-item{
+  margin: 10px 0;
+}
+.skill-item::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 120%;
+  height: 5px;
+  background-color: #fae1e1;
+  border-radius: 3px;
+}
+.skill-item::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 120%;
+  height: 5px;
+  background: #e6686a;
+  border-radius: 3px;
+}
+.skills li:first-child .skill-item::after{
+  right: 20%;
+}
+.skills li:nth-child(2) .skill-item::after{
+  right: 30%;
+}
+.skills li:nth-child(3) .skill-item::after{
+  right: 40%;
+}
+.skills li:nth-child(4) .skill-item::after{
+  right: 50%;
+}
+.skills li:nth-child(5) .skill-item::after{
+  right: 60%;
+}
+.skills li:last-child .skill-item::after{
+  right: 80%;
+}
+/*作品集*/
+.portfolio{
+  text-align: center;
+  margin-bottom: 100px;
+}
+.portfolio nav{
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+}
+.portfolio ol{
+  margin: 20px 0;
+  display: inline-block;
+  vertical-align: top;
+}
+.portfolio li{
+  float: left;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.portfolio li:first-child{
+  margin-left: 0;
+}
+#nav-progress-bar{
+  height: 5px;
+  border-radius: 3px;
+  background: #fff;
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+.inner-bar{
+  height: 100%;
+  background: #e6686a;
+  border-radius: 3px;
+  transition: all .4s;
+}
+#nav-progress-bar.state1 .inner-bar{
+  width: 30px;
+}
+#nav-progress-bar.state2 .inner-bar{
+  width: 40px;
+  margin-left: 50px;
+}
+#nav-progress-bar.state3 .inner-bar{
+  width: 70px;
+  margin-left: 116px;
+}
 
+/*作品集*/
+.works{
+  margin-top: 40px;
+  position: relative;
+}
+.works.state1{
+  height: 598px;
+}
+.works.state2{
+  height: 288px;
+}
+.works.state3{
+  height: 288px;
+}
+.works .photo{
+  position: absolute;
+  transition: all 0.6s;
+}
+.works .big{
+  width: 606px;
+  height: 597px;
+}
+.works .small{
+  width: 293px;
+}
+.state1 .big.work1{
+  left: 0;
+  top: 0;
+}
+.state1 .small.work2{
+  right: 0;
+  top: 0;
+}
+.state1 .small.work3{
+  right: 0;
+  bottom: 0;
+}
+.state2 .big.work1{
+  left: 100px;
+  top: 0;
+  opacity: 0;
+}
+.state2 .small.work2{
+  left: 0;
+  top: 0;
+}
+.state2 .small.work3{
+  top: 0;
+  left: 300px;
+}
+.state3 .big.work1{
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.state3 .small.work2{
+  left: 0;
+  top: 0;
+}
+.state3 .small.work3{
+  top: 0;
+  left: 100px;
+  opacity: 0;
+}
