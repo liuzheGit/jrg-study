@@ -75,6 +75,7 @@ nav a{
   padding-bottom: 8px;
   display: block;
   border-bottom: 2px solid transparent;
+  transition: border .3s;
 }
 nav a:hover{
   border-bottom: 2px solid red;

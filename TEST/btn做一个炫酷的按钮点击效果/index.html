@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>一个炫酷的按钮点击效果</title>
+  <style>
+    .box{
+      padding: 100px;
+    }
+
+    .btn-effect{
+      padding: 8px 50px;
+      color: #000;
+      border: 1px solid #eee;
+      cursor: pointer;
+      position: relative;
+    }
+    .btn-effect::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      right: 50%;
+      height: 100%;
+      /*border: 1px solid red;*/
+      z-index: -1;
+      background: #df407e;
+      transition: left 0.3s ease-out;
+    }
+    .btn-effect::after{
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      left: 50%;
+      height: 100%;
+      /*border: 1px solid red;*/
+      z-index: -1;
+      background: #df407e;
+      transition: right 0.3s ease-out;
+    }
+
+    .btn-effect:hover::before{
+      left: 0;
+    }
+    .btn-effect:hover::after{
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span class="btn-effect">button</span>
+  </div>
+</body>
+</html>
