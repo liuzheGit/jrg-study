@@ -57,8 +57,10 @@ for (let i = 0, len = kbds.length; i < len; i++){
     }else {
       img.src = defaultImg;
     }
-    img.onerror = function(){
-      img.src = defaultImg;
+    img.onerror = function(event){
+      // console.log(event)
+      // img.src = defaultImg;
+      event.target.src = defaultImg
     };
     kbd.textContent = kbds[i][j];
     let edit = document.createElement('button');
@@ -69,6 +71,7 @@ for (let i = 0, len = kbds.length; i < len; i++){
       let value = window.prompt('编辑我吧!');
       if(value){
         hash[id] = value;
+        document.getElementById(id).previousSibling.src = '//' + value + '/favicon.ico';
         localStorage.setItem('kbd', JSON.stringify(hash))
       }
     };
