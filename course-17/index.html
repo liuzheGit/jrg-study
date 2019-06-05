@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+  <meta charset="UTF-8">
+  <title>导航网</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main id="kbd-content"></main>
+</body>
+</html>
+<script>
+  let kbds = {
+    '0': {
+      '0': 'q', '1': 'w', '2': 'e', '3': 'r', '4': 't', '5': 'y', '6': 'u', '7': 'i', '8': 'o', '9': 'p', length: 10
+    },
+    '1': {
+      '0': 'a', '1': 's', '2': 'd', '3': 'f', '4': 'g', '5': 'h', '6': 'j', '7': 'k', '8': 'l',length: 9
+    },
+    '2': {
+      '0': 'z', '1': 'x', '2': 'c', '3': 'v', '4': 'b', '5': 'n', '6': 'm',length: 7
+    },
+    length: 3
+  };
+  let hash = {
+      'q': 'qq.com',
+      'w': 'weibo.com',
+      't': 'taobao.com',
+      'i': 'iqiyi.com',
+      'a': 'amap.com',
+      'g': 'githuh.com',
+      'j': 'jd.com',
+      'v': 'v2ex.com'
+    };
+  let getKbd = localStorage.getItem('kbd');
+  if(getKbd){
+    hash = JSON.parse(getKbd);
+  }else {
+    localStorage.setItem('kbd', JSON.stringify(hash))
+  }
+let kbdContent = document.getElementById('kbd-content');
+for (let i = 0, len = kbds.length; i < len; i++){
+  let kbdWrap = document.createElement('div');
+  for(let j = 0, len = kbds[i].length; j < len; j++){
+    let kbd = document.createElement('kbd');
+    kbd.textContent = kbds[i][j];
+    let edit = document.createElement('button');
+    edit.textContent = 'E';
+    edit.id = kbds[i][j];
+    edit.onclick = function(event){
+      let id = event.target.id;
+      let value = window.prompt('编辑我吧!');
+      if(value){
+        hash[id] = value;
+        console.log(hash);
+        localStorage.setItem('kbd', JSON.stringify(hash))
+      }
+    };
+    kbd.appendChild(edit);
+    kbdWrap.appendChild(kbd);
+  }
+  kbdContent.appendChild(kbdWrap);
+}
+document.onkeypress = function(event){
+  let key = event.key;
+  let url = hash[key];
+  if(url !== undefined && url !== ''){
+    // location.href = 'http://' + url;
+    window.open('http://' + url , '_blank')
+  }else{
+    alert('没有绑定');
+  }
+}
+</script>

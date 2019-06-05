@@ -1,0 +1,33 @@
+*{margin: 0; padding: 0;}
+kbd{
+  font-family: "Microsoft YaHei";
+  width: 4em;
+  height: 4em;
+  border: 1px solid #000000;
+  display: inline-block;
+  text-align: left;
+  padding-left: 10px;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+kbd > button{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 4px 8px;
+  border: none;
+  outline: none;
+  display: none;
+}
+kbd:hover > button{
+  display: inline-block;
+}
+#kbd-content{
+  text-align: center;
+  margin-top: 100px;
+}
+#kbd-content > div{
+  /*display: inline-block;*/
+}
