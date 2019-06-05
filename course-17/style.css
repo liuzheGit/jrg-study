@@ -1,16 +1,22 @@
 *{margin: 0; padding: 0;}
-kbd{
-  font-family: "Microsoft YaHei";
-  width: 4em;
-  height: 4em;
-  border: 1px solid #000000;
+/*按键的美化*/
+kbd.kbd{
   display: inline-block;
+  width: 50px;
+  height: 40px;
+  color: #c5c5c5;
   text-align: left;
-  padding-left: 10px;
   box-sizing: border-box;
   position: relative;
+  margin: 0 10px;
+  padding-left: 10px;
   cursor: pointer;
   text-transform: uppercase;
+  border: 1px solid #373737;
+  border-radius: 4px;
+  background: linear-gradient(to bottom, rgba(40,40,40,1) 0%,rgba(18,18,18,1) 100%);
+  font-family: Helvetica;
+  box-shadow: 0 0 0 1px #1A1B1C, 0 0 0 2px #1F2020, 0 3px 0 2px #080808;
 }
 kbd > button{
   position: absolute;
@@ -24,10 +30,29 @@ kbd > button{
 kbd:hover > button{
   display: inline-block;
 }
+kbd > img{
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+}
+main{
+  height: 100vh;
+  background-image: url("./img/wall.jpg");
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #kbd-content{
   text-align: center;
-  margin-top: 100px;
+  display: inline-block;
+  background: rgba(255, 255, 255, .3);
+  border-radius: 8px;
+  margin-top: -200px;
 }
 #kbd-content > div{
-  /*display: inline-block;*/
+  margin: 20px;
 }

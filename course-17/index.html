@@ -6,10 +6,16 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<main id="kbd-content"></main>
+<main>
+  <div id="kbd-content">
+
+  </div>
+</main>
 </body>
 </html>
 <script>
+
+  let defaultImg = 'https://i.loli.net/2019/06/05/5cf7880bd102756597.png';
   let kbds = {
     '0': {
       '0': 'q', '1': 'w', '2': 'e', '3': 'r', '4': 't', '5': 'y', '6': 'u', '7': 'i', '8': 'o', '9': 'p', length: 10
@@ -43,6 +49,17 @@ for (let i = 0, len = kbds.length; i < len; i++){
   let kbdWrap = document.createElement('div');
   for(let j = 0, len = kbds[i].length; j < len; j++){
     let kbd = document.createElement('kbd');
+    kbd.className = 'kbd';
+    let img = document.createElement('img');
+    let ImgSrc = hash[kbds[i][j]];
+    if(ImgSrc){
+      img.src = '//' + ImgSrc + '/favicon.ico';
+    }else {
+      img.src = defaultImg;
+    }
+    img.onerror = function(){
+      img.src = defaultImg;
+    };
     kbd.textContent = kbds[i][j];
     let edit = document.createElement('button');
     edit.textContent = 'E';
@@ -52,10 +69,10 @@ for (let i = 0, len = kbds.length; i < len; i++){
       let value = window.prompt('编辑我吧!');
       if(value){
         hash[id] = value;
-        console.log(hash);
         localStorage.setItem('kbd', JSON.stringify(hash))
       }
     };
+    kbd.appendChild(img);
     kbd.appendChild(edit);
     kbdWrap.appendChild(kbd);
   }
