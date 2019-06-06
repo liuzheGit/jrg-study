@@ -28,16 +28,18 @@
     },
     length: 3
   };
-  let hash = {
-      'q': 'qq.com',
-      'w': 'weibo.com',
-      't': 'taobao.com',
-      'i': 'iqiyi.com',
-      'a': 'amap.com',
-      'g': 'githuh.com',
-      'j': 'jd.com',
-      'v': 'v2ex.com'
-    };
+  let lzHash = {"q":"www.qq.com","w":"weibo.com","t":"taobao.com","i":"iqiyi.com","a":"amazon.com","g":"google.com","j":"jianshu.com","v":"v2ex.com","l":"lol.qq.com","h":"huya.com","y":"youtube.com","o":"opera.com","z":"zhihu.com","k":"36kr.com","s":"sm.ms","x":"xiedaimala.com","c":"codetimecn.com","b":"bilibili.com","n":"app.yinxiang.com/Home.action","u":"uziuzi.com","p":"program-think.blogspot.com","r":"ruanyifeng.com","e":"erjinfu.com","d":"douyu.com","f":"github.com","m":"amap.com"};
+  let hash = lzHash;
+  // let hash = {
+  //     'q': 'qq.com',
+  //     'w': 'weibo.com',
+  //     't': 'taobao.com',
+  //     'i': 'iqiyi.com',
+  //     'a': 'amap.com',
+  //     'g': 'githuh.com',
+  //     'j': 'jd.com',
+  //     'v': 'v2ex.com'
+  //   };
   let getKbd = localStorage.getItem('kbd');
   if(getKbd){
     hash = JSON.parse(getKbd);
