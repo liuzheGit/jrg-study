@@ -14,83 +14,151 @@
 </body>
 </html>
 <script>
-
+  // 初始化数据
   let defaultImg = 'https://i.loli.net/2019/06/05/5cf7880bd102756597.png';
   let kbds = {
     '0': {
       '0': 'q', '1': 'w', '2': 'e', '3': 'r', '4': 't', '5': 'y', '6': 'u', '7': 'i', '8': 'o', '9': 'p', length: 10
     },
     '1': {
-      '0': 'a', '1': 's', '2': 'd', '3': 'f', '4': 'g', '5': 'h', '6': 'j', '7': 'k', '8': 'l',length: 9
+      '0': 'a', '1': 's', '2': 'd', '3': 'f', '4': 'g', '5': 'h', '6': 'j', '7': 'k', '8': 'l', length: 9
     },
     '2': {
-      '0': 'z', '1': 'x', '2': 'c', '3': 'v', '4': 'b', '5': 'n', '6': 'm',length: 7
+      '0': 'z', '1': 'x', '2': 'c', '3': 'v', '4': 'b', '5': 'n', '6': 'm', length: 7
     },
     length: 3
   };
-  let lzHash = {"q":"www.qq.com","w":"weibo.com","t":"taobao.com","i":"iqiyi.com","a":"amazon.com","g":"google.com","j":"jianshu.com","v":"v2ex.com","l":"lol.qq.com","h":"huya.com","y":"youtube.com","o":"opera.com","z":"zhihu.com","k":"36kr.com","s":"sm.ms","x":"xiedaimala.com","c":"codetimecn.com","b":"bilibili.com","n":"app.yinxiang.com/Home.action","u":"uziuzi.com","p":"program-think.blogspot.com","r":"ruanyifeng.com","e":"erjinfu.com","d":"douyu.com","f":"github.com","m":"amap.com"};
+  let lzHash = {
+    "q": "www.qq.com",
+    "w": "weibo.com",
+    "t": "taobao.com",
+    "i": "iqiyi.com",
+    "a": "amazon.com",
+    "g": "google.com",
+    "j": "jianshu.com",
+    "v": "v2ex.com",
+    "l": "lol.qq.com",
+    "h": "huya.com",
+    "y": "youtube.com",
+    "o": "opera.com",
+    "z": "zhihu.com",
+    "k": "36kr.com",
+    "s": "sm.ms",
+    "x": "xiedaimala.com",
+    "c": "codetimecn.com",
+    "b": "bilibili.com",
+    "n": "app.yinxiang.com/Home.action",
+    "u": "uziuzi.com",
+    "p": "program-think.blogspot.com",
+    "r": "ruanyifeng.com",
+    "e": "erjinfu.com",
+    "d": "douyu.com",
+    "f": "github.com",
+    "m": "amap.com"
+  };
   let hash = lzHash;
-  // let hash = {
-  //     'q': 'qq.com',
-  //     'w': 'weibo.com',
-  //     't': 'taobao.com',
-  //     'i': 'iqiyi.com',
-  //     'a': 'amap.com',
-  //     'g': 'githuh.com',
-  //     'j': 'jd.com',
-  //     'v': 'v2ex.com'
-  //   };
-  let getKbd = localStorage.getItem('kbd');
-  if(getKbd){
-    hash = JSON.parse(getKbd);
-  }else {
-    localStorage.setItem('kbd', JSON.stringify(hash))
+
+  // 封装获取localStorage
+  function getLocalStorage(item) {
+    return JSON.parse(localStorage.getItem(item) || 'null')
   }
-let kbdContent = document.getElementById('kbd-content');
-for (let i = 0, len = kbds.length; i < len; i++){
-  let kbdWrap = document.createElement('div');
-  for(let j = 0, len = kbds[i].length; j < len; j++){
-    let kbd = document.createElement('kbd');
-    kbd.className = 'kbd';
-    let img = document.createElement('img');
-    let ImgSrc = hash[kbds[i][j]];
-    if(ImgSrc){
-      img.src = '//' + ImgSrc + '/favicon.ico';
-    }else {
-      img.src = defaultImg;
+
+  function setLocalStorage(item, obj) {
+    localStorage.setItem(item, JSON.stringify(obj));
+  }
+
+  // 初始化键盘hash
+  let getKbd = getLocalStorage('kbd');
+  if (getKbd) {
+    hash = getKbd;
+  } else {
+    setLocalStorage('kbd', hash);
+  }
+
+
+  // 获取DOM
+  let kbdContent = document.getElementById('kbd-content');
+
+  /**
+   * 生成键盘DOM
+   */
+
+  /**
+   * 封装创建DOM
+   * @param tagName: DOM 的名称
+   * @param attributes:  绑定DOM的属性
+   * @returns {HTMLElement} : 返回创建的DOM
+   */
+  function createEle(tagName, attributes){
+    let element =  document.createElement(tagName);
+    // 遍历属性添加到新创建的元素上
+    if(attributes){
+      for(let key in attributes){
+        element[key] = attributes[key];
+      }
     }
-    img.onerror = function(event){
-      // console.log(event)
-      // img.src = defaultImg;
+    return element
+  }
+
+  function createImg(host){
+    let result = host ? `//${host}/favicon.ico` : defaultImg;
+    let img = createEle('img', { src: result });
+    img.onerror = function (event) {
       event.target.src = defaultImg
     };
-    kbd.textContent = kbds[i][j];
-    let edit = document.createElement('button');
-    edit.textContent = 'E';
-    edit.id = kbds[i][j];
-    edit.onclick = function(event){
+    return img
+  }
+  function createButton(id){
+    let button = createEle('button', { textContent: 'E', id: id });
+    button.onclick = function (event) {
       let id = event.target.id;
       let value = window.prompt('编辑我吧!');
-      if(value){
+      if (value) {
         hash[id] = value;
         document.getElementById(id).previousSibling.src = '//' + value + '/favicon.ico';
-        localStorage.setItem('kbd', JSON.stringify(hash))
+        setLocalStorage('kbd', hash)
       }
     };
-    kbd.appendChild(img);
-    kbd.appendChild(edit);
-    kbdWrap.appendChild(kbd);
+    return button
   }
-  kbdContent.appendChild(kbdWrap);
-}
-document.onkeypress = function(event){
-  let key = event.key;
-  let url = hash[key];
-  if(url !== undefined && url !== ''){
-    // location.href = 'http://' + url;
-    window.open('http://' + url , '_blank')
-  }else{
-    alert('没有绑定');
+
+  for (let i = 0, len = kbds.length; i < len; i++) {
+    // 创建每一行键盘的外div
+    let kbdWrap = createEle('div');
+    for (let j = 0, len = kbds[i].length; j < len; j++) {
+      // 生成icon并且用三元运算符判断和错误事件监听
+      let host = hash[kbds[i][j]];
+      let img = createImg(host)
+
+      // 编辑按钮和事件
+      let buttonId = kbds[i][j];
+      let button = createButton(buttonId);
+
+      //  创建按键
+      let kbd = createEle('kbd', { className: 'kbd', textContent: kbds[i][j] });
+
+      // 把图片和编辑按钮放进去
+      kbd.appendChild(img);
+      kbd.appendChild(button);
+      // 把每个按键放进div中
+      kbdWrap.appendChild(kbd);
+    }
+
+    // 把每一行的键盘div放到DOM中
+    kbdContent.appendChild(kbdWrap);
   }
-}
+
+
+  // 监听按钮事件
+  document.onkeypress = function (event) {
+    let key = event.key;
+    let url = hash[key];
+    if (url !== undefined && url !== '') {
+      window.open('http://' + url, '_blank')
+    } else {
+      alert('没有绑定');
+    }
+  }
+
+
 </script>
