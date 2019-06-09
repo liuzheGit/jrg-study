@@ -1,0 +1,26 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+canvas{
+  display: block;
+}
+
+#buttons{
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+#buttons > #brush{
+  display: none;
+}
+
+#buttons.active > #eraser{
+  display: none;
+}
+
+#buttons.active > #brush{
+  display: inline-block;
+}
