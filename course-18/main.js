@@ -130,7 +130,7 @@ function drawCircle(x, y) {
 function drawLine(x1, y1, x2, y2) {
   context.beginPath();
   context.moveTo(x1, y1);
-  context.lineWidth = 5;
+  context.lineWidth = 20;
   context.lineTo(x2, y2);
   context.stroke();
   context.closePath();
