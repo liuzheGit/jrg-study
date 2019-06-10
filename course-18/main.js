@@ -7,21 +7,33 @@ let brush = document.getElementById('brush');
 
 listenUser(canvas);
 let context = canvas.getContext('2d');
-
-
 let isCleaning = false;
-eraser.onclick = function () {
-  isCleaning = true;
-  buttons.className = 'active';
-};
+
+// 画笔和橡皮擦切换
 brush.onclick = function () {
   isCleaning = false;
-  buttons.className = '';
+  brush.classList.add('active');
+  eraser.classList.remove('active');
 };
-
+eraser.onclick = function () {
+  isCleaning = true;
+  eraser.classList.add('active');
+  brush.classList.remove('active');
+};
+// 切换颜色
+let colors = document.querySelector('.colors');
+colors.addEventListener('click',function(e){
+  let colorName = e.target.getAttribute('color');
+  context.fillStyle = colorName;
+  context.strokeStyle = colorName;
+  let colorLists = [].slice.call(this.children);
+  colorLists.forEach(function(item, index, arr){
+    item.classList.remove('active')
+  });
+  e.target.classList.add('active');
+});
 
 function listenUser(canvas) {
-
   let isDrawing = false;
   let lastPoint;
   // 设备检测
@@ -108,17 +120,15 @@ function listenUser(canvas) {
 
 
 //  点下的时候 画圆
-function drawCircle(x, y, color) {
+function drawCircle(x, y) {
   context.beginPath();
-  context.fillStyle = color || 'black';
   context.arc(x, y, 2.5, 0, Math.PI * 2);
   context.fill();
 }
 
 // 连接上一个点和最新点
-function drawLine(x1, y1, x2, y2, color) {
+function drawLine(x1, y1, x2, y2) {
   context.beginPath();
-  context.strokeStyle = color || 'black';
   context.moveTo(x1, y1);
   context.lineWidth = 5;
   context.lineTo(x2, y2);

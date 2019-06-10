@@ -1,11 +1,8 @@
-*{
-  margin: 0;
-  padding: 0;
-}
+.icon { width: 1em; height: 1em; vertical-align: -0.15em; fill: currentColor; overflow: hidden; }
+*{ margin: 0; padding: 0; }
+ul,ol{list-style: none;}
+canvas{ display: block; }
 
-canvas{
-  display: block;
-}
 
 #buttons{
   position: fixed;
@@ -13,14 +10,44 @@ canvas{
   left: 10px;
 }
 
-#buttons > #brush{
-  display: none;
+#buttons svg{
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 10px;
+  transition: all .4s;
+}
+#buttons svg.active{
+  fill: red;
+  transform: scale(1.3);
 }
 
-#buttons.active > #eraser{
-  display: none;
+.colors{
+  position: fixed;
+  top: 38px;
+  left: 18px;
 }
 
-#buttons.active > #brush{
-  display: inline-block;
+.colors li{
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  margin: 8px 0;
+  box-shadow: 0 0 3px #3d4451;
+  transition: all .5s;
+}
+.colors li.active{
+  transform: scale(1.3);
+  box-shadow: 0 0 3px #000;
+}
+.colors #black{
+  background: #000;
+}
+.colors #red{
+  background: #f00;
+}
+.colors #green{
+  background: #0f0;
+}
+.colors #yellow{
+  background: #ff0;
 }
