@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>我的画板</title>
   <link rel="stylesheet" href="./style.css">
-  <script src="//at.alicdn.com/t/font_1234180_s1u913fkgja.js"></script>
+  <script src="//at.alicdn.com/t/font_1234180_g80pyuacjhu.js"></script>
 </head>
 <body>
   <canvas id="canvas"></canvas>
@@ -17,12 +17,23 @@
     <svg id="eraser" class="icon" aria-hidden="true">
       <use xlink:href="#icon-eraser"></use>
     </svg>
+    <svg id="clear" class="icon" aria-hidden="true">
+      <use xlink:href="#icon-clear"></use>
+    </svg>
+    <svg id="save" class="icon" aria-hidden="true">
+      <use xlink:href="#icon-save"></use>
+    </svg>
   </div>
   <ol class="colors">
     <li id="black" color="black" class="active"></li>
     <li id="red" color="red"></li>
     <li id="green" color="green"></li>
     <li id="yellow" color="yellow"></li>
+  </ol>
+  <ol class="thickness">
+    <li id="thick" ness="5" class="active"></li>
+    <li id="middle" ness="3"></li>
+    <li id="thin" ness="1"></li>
   </ol>
   <script src="./main.js"></script>
 </body>
