@@ -19,6 +19,7 @@ save.onclick = function(){
   let strDataURI = canvas.toDataURL("image/png");
   // 创建a链接用来下载图片资源
   let a = document.createElement('a');
+  document.body.appendChild(a);
   a.href = strDataURI;
   a.download = 'myCanvas';
   a.target = '_blank';
