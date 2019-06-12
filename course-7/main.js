@@ -29,10 +29,8 @@ window.onscroll = function(){
   let scrollY = window.scrollY;
   if(scrollY > 0){
     siteHead.classList.add('sticky');
-    console.log('添加累')
   }else {
     siteHead.classList.remove('sticky');
-    console.log('移除累')
   }
 };
 
@@ -50,3 +48,14 @@ triggerMenu.map(function(item){
   }
 });
 
+// 滚动到响应的内容区域
+let aTags = document.querySelectorAll('.triggerNav>ul>li>a');
+for(let i = 0, len = aTags.length; i < len; i++){
+  aTags[i].onclick = function(e){
+    e.preventDefault();
+    let href = e.currentTarget.getAttribute('href');
+    let targetTag = document.querySelector(href);
+    let x = targetTag.offsetTop;
+    window.scrollTo(0, x - 90)
+  }
+}
