@@ -35,3 +35,25 @@ window.onscroll = function(){
     console.log('移除累')
   }
 };
+
+// 头部subMenu
+let triggerMenu = document.getElementsByClassName('triggerMenu');
+let triggerMenuArr = [].slice.call(triggerMenu);
+triggerMenuArr.map((item)=>{
+  item.onmouseenter = function(e){
+    let current = e.currentTarget;
+    let a = current.nextSibling;
+    while (a.nodeType === 3){
+      a = a.nextSibling;
+    }
+    a.classList.add('active')
+  }
+  item.onmouseleave = function(e){
+    let current = e.currentTarget;
+    let a = current.nextSibling;
+    while (a.nodeType === 3){
+      a = a.nextSibling;
+    }
+    a.classList.remove('active')
+  }
+});
