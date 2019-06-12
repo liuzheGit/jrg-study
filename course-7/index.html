@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>方方的个人简历</title>
+  <link rel="stylesheet" href="./loading.css">
   <link rel="stylesheet" href="./style.css">
   <script src="//at.alicdn.com/t/font_1225673_d8a2sqmld2r.js"></script>
   <style type="text/css">
@@ -17,7 +18,10 @@
   </style>
 </head>
 <body>
-<header class="top-nav-bar">
+<div class="loading-wrap active" id="loadingWrap">
+  <div class="loading"></div>
+</div>
+<header class="top-nav-bar" id="siteHead">
   <div class="header-inner clearfix">
     <a href="javascript:void(0);" class="logo" title="logo">
       <span class="rs">rs</span>
@@ -123,24 +127,6 @@
     <img src="./images/3.jpg" alt="作品3" class="photo work3 small">
   </div>
 </section>
-<script>
-  let stateDiv = document.getElementById('nav-progress-bar');
-  let show = document.getElementById('show-works');
-  let btn1 = document.getElementById('btn1');
-  let btn2 = document.getElementById('btn2');
-  let btn3 = document.getElementById('btn3');
-  btn1.onclick = function(){
-    stateDiv.className = 'state1';
-    show.className = 'works state1';
-  };
-  btn2.onclick = function(){
-    stateDiv.className = 'state2';
-    show.className = 'works state2';
-  };
-  btn3.onclick = function(){
-    stateDiv.className = 'state3';
-    show.className = 'works state3';
-  };
-</script>
+<script src="./main.js"></script>
 </body>
 </html>
