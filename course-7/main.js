@@ -37,23 +37,16 @@ window.onscroll = function(){
 };
 
 // 头部subMenu
-let triggerMenu = document.getElementsByClassName('triggerMenu');
-let triggerMenuArr = [].slice.call(triggerMenu);
-triggerMenuArr.map((item)=>{
+let triggerMenu = document.querySelectorAll('.triggerNav > ul > li');
+triggerMenu = [].slice.call(triggerMenu);
+triggerMenu.map(function(item){
   item.onmouseenter = function(e){
     let current = e.currentTarget;
-    let a = current.nextSibling;
-    while (a.nodeType === 3){
-      a = a.nextSibling;
-    }
-    a.classList.add('active')
+    current.classList.add('active')
   }
   item.onmouseleave = function(e){
     let current = e.currentTarget;
-    let a = current.nextSibling;
-    while (a.nodeType === 3){
-      a = a.nextSibling;
-    }
-    a.classList.remove('active')
+    current.classList.remove('active')
   }
 });
+
