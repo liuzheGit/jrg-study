@@ -116,3 +116,12 @@ main .main-content{ /*border: 1px solid red;*/ margin-top: -340px; background: #
 .loading-wrap{ position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: #fff; z-index: 11; display: none;
   justify-content: center; align-items: center; }
 .loading-wrap.active{ display: flex; }
+
+/* 上滑动画 */
+[data-x]{
+  transform: translateY(0);
+  transition: all .5s;
+}
+[data-x].offset{
+  transform: translateY(30px);
+}
