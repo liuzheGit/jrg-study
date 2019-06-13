@@ -59,7 +59,7 @@ main .main-content{ /*border: 1px solid red;*/ margin-top: -340px; background: #
 .main-footer{ background: #e6686a; padding: 22px 0; text-align: center; }
 .main-footer ul{ display: inline-block; }
 .main-footer li{ float: left; margin:0 15px; }
-.main-footer svg{ width: 30px; height: 30px; fill: #fff; }
+.main-footer>ul>li>a>svg.icon{ width: 30px; height: 30px; fill: red; color: red;}
 .main-footer li{ padding: 7px 8px; border-radius: 50%; }
 .main-footer li:hover{ background: rgba(0, 0, 0, .1); }
 /*下载按钮*/
