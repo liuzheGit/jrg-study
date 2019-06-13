@@ -25,6 +25,8 @@ setTimeout(function () {
 
 // 会变的头部
 let siteHead = document.getElementById('siteHead');
+// 标记的有特殊属性的标签
+let specialTags = document.querySelectorAll('[data-x]');
 window.onscroll = function(){
   let scrollY = window.scrollY;
   if(scrollY > 0){
@@ -32,6 +34,21 @@ window.onscroll = function(){
   }else {
     siteHead.classList.remove('sticky');
   }
+  let minIndex = 0;
+  for(let i = 1, len = specialTags.length; i < len; i++){
+    if(Math.abs(specialTags[i].offsetTop - scrollY) < Math.abs(specialTags[minIndex].offsetTop - scrollY)){
+      minIndex = i;
+    }
+  }
+  let id = specialTags[minIndex].id;
+  let a = document.querySelector(`a[href="#${id}"]`);
+  let li = a.parentNode;
+  let brotherAndMe = li.parentNode.children;
+  for (let i = 0, len = brotherAndMe.length; i < len; i++){
+    brotherAndMe[i].classList.remove('active');
+    li.classList.add('active')
+  }
+
 };
 
 // 头部subMenu
@@ -73,7 +90,5 @@ for(let i = 0, len = aTags.length; i < len; i++){
           window.scrollTo(0, coords.y)
         })
         .start();
-
-
   }
 }
