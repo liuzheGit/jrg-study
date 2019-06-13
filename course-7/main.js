@@ -55,7 +55,18 @@ for(let i = 0, len = aTags.length; i < len; i++){
     e.preventDefault();
     let href = e.currentTarget.getAttribute('href');
     let targetTag = document.querySelector(href);
-    let x = targetTag.offsetTop;
-    window.scrollTo(0, x - 90)
+    let n = 25;  // 要动的次数
+    let duration = 500 / n; // 要动500ms, 每次动多少时间
+    let currentTop = window.scrollY;
+    let targetTop = targetTag.offsetTop - 90;
+    let distance = (targetTop - currentTop) / n; // 每次要滚动的距离
+    let i = 0;
+    let timerId = setInterval(()=>{
+      i = i + 1;
+      window.scrollTo(0, currentTop + distance * i);
+      if(i === n){
+        window.clearInterval(timerId);
+      }
+    },duration)
   }
 }
