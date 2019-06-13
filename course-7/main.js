@@ -45,8 +45,8 @@ window.onscroll = function(){
   let li = a.parentNode;
   let brotherAndMe = li.parentNode.children;
   for (let i = 0, len = brotherAndMe.length; i < len; i++){
-    brotherAndMe[i].classList.remove('active');
-    li.classList.add('active')
+    brotherAndMe[i].classList.remove('highlight');
+    li.classList.add('highlight')
   }
 
 };
