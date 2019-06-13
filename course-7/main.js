@@ -47,6 +47,12 @@ triggerMenu.map(function(item){
     current.classList.remove('active')
   }
 });
+// Setup the animation loop.
+function animate(time) {
+  requestAnimationFrame(animate);
+  TWEEN.update(time);
+}
+requestAnimationFrame(animate);
 
 // 滚动到响应的内容区域
 let aTags = document.querySelectorAll('.triggerNav>ul>li>a');
@@ -55,18 +61,19 @@ for(let i = 0, len = aTags.length; i < len; i++){
     e.preventDefault();
     let href = e.currentTarget.getAttribute('href');
     let targetTag = document.querySelector(href);
-    let n = 25;  // 要动的次数
-    let duration = 500 / n; // 要动500ms, 每次动多少时间
     let currentTop = window.scrollY;
     let targetTop = targetTag.offsetTop - 90;
-    let distance = (targetTop - currentTop) / n; // 每次要滚动的距离
-    let i = 0;
-    let timerId = setInterval(()=>{
-      i = i + 1;
-      window.scrollTo(0, currentTop + distance * i);
-      if(i === n){
-        window.clearInterval(timerId);
-      }
-    },duration)
+    let time = Math.abs((targetTop - currentTop) / 100 * 300); // 假设每100像素用300ms移动
+    time = time > 500 ? 500 : time;  // 限制最大动画时间
+    let coords = { y: currentTop };
+    let tween = new TWEEN.Tween(coords)
+        .to({ y: targetTop }, time)  // 动画结束的hash值 , 总时间
+        .easing(TWEEN.Easing.Quartic.InOut)
+        .onUpdate(() => {
+          window.scrollTo(0, coords.y)
+        })
+        .start();
+
+
   }
 }
