@@ -1,0 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.window{
+  margin: 100px auto;
+  width: 400px;
+  height: 180px;
+  /*overflow: hidden;*/
+  outline: 2px solid rgba(0,0,0,0.4);
+  position: relative;
+}
+.window img{
+  position: absolute;
+  top: 0;
+  transition: all 2s;
+}
+
+.window > img.current{
+  left: 0;
+  z-index: 1;
+}
+.window > img.next{
+  left: 100%;
+}
+.window > img.prev{
+  left: -100%;
+  z-index: 1;
+}
+
