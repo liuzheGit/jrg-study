@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>clientWidth/clientHeight</title>
+  <style>
+    .wrap{
+      height: 300px;
+      width: 200px;
+      border: 10px solid red;
+      padding: 20px;
+      margin: 30px;
+      box-sizing: border-box;
+    }
+    .wrap2{
+      height: 300px;
+      width: 200px;
+      border: 10px solid red;
+      padding: 20px;
+      margin: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    wrap
+  </div>
+  <div class="wrap2">
+    wrap2
+  </div>
+</body>
+</html>
+<script>
+  var $ = s => document.querySelector(s);
+  let clientW = $('.wrap').clientWidth;
+  let client2W = $('.wrap2').clientWidth;
+  console.log(client2W);
+  // let clientH = $('.wrap').clientHeight;
+  // let client2H = $('.wrap2').clientHeight;
+  // console.log(clientH)
+  // console.log(client2H)
+</script>
