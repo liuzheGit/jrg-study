@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.slide-wrap{
+  display: flex;
+  transition: all 0.3s;
+}
+
+.window{
+  margin: 100px auto 40px;
+  width: 400px;
+  border: 1px solid green;
+  overflow: hidden;
+}
+.buttons{
+  text-align: center;
+}
+.buttons > button{
+  padding: 4px 10px;
+}
