@@ -1,37 +1,38 @@
+let n = 1;
 let $allImgs = $('.slide-wrap > img');
 let $slideWrap = $('.slide-wrap');
+let WIDTH = $allImgs.width();
+
 let $imgFirst = $allImgs.eq(0).clone(true);
 let $imgLast = $allImgs.eq($allImgs.length - 1).clone(true);
-let n = 1;
 $slideWrap.append($imgFirst).prepend($imgLast);
+$slideWrap.css('transform', `translateX(-${WIDTH}px)`);
 
-$slideWrap.css({
-  'transform': 'translateX(-400px)'
-});
-
-$('#btn1').on('click', function(){
-  if(n === 3){
+$('#btn1').on('click', function(e){
+  let index = $(e.currentTarget).index() + 1;
+  let lastIndex = $allImgs.length;
+  if(n === lastIndex){
     $slideWrap.css({
-      'transform': 'translateX(-1600px)'
+      'transform': `translateX(-${(lastIndex + 1) * WIDTH}px)`
     }).one('transitionend',function(){
       console.log('动画结束');
       $slideWrap.hide().offset();
-      $slideWrap.css('transform', 'translateX(-400px)').show()
+      $slideWrap.css('transform', `translateX(-${WIDTH}px)`).show()
     });
   }else{
     $slideWrap.css({
-      'transform': 'translateX(-400px)'
+      'transform': `translateX(-${WIDTH}px)`
     });
   }
-  n = 1;
+  n = index;
 });
-$('#btn2').on('click', function(){
-  $slideWrap.css({
-    'transform': 'translateX(-800px)'
-  });
-  n = 2
+$('#btn2').on('click', function(e){
+  let index = $(e.currentTarget).index() + 1;
+  $slideWrap.css( 'transform', 'translateX(-800px)' );
+  n = index;
 });
-$('#btn3').on('click', function(){
+$('#btn3').on('click', function(e){
+  let index = $(e.currentTarget).index() + 1;
   if(n === 1){
     $slideWrap.css({
       'transform': 'translateX(0)'
@@ -43,6 +44,6 @@ $('#btn3').on('click', function(){
     $slideWrap.css({
       'transform': 'translateX(-1200px)'
     });
-    n = 3;
+    n = index;
   }
 });

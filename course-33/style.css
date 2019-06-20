@@ -7,6 +7,9 @@
   display: flex;
   transition: all 0.3s;
 }
+.slide-wrap > img{
+  width: 400px;
+}
 
 .window{
   margin: 100px auto 40px;
