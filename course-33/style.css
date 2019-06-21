@@ -17,9 +17,10 @@
   border: 1px solid green;
   overflow: hidden;
 }
-.buttons{
+.buttons,.controls{
+  margin-top: 20px;
   text-align: center;
 }
-.buttons > button{
+button{
   padding: 4px 10px;
 }
