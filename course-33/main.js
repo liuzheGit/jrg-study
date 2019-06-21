@@ -1,15 +1,15 @@
 let current = 0;
-let temer;
+let timer;
 let $allImgs = $('.slide-wrap > img');
 let $slideWrap = $('.slide-wrap');
+let $operation = $('.operation-panel');
 let WIDTH = $allImgs.width();
-let m = 1;
+fakeDom();
 
-let $imgFirst = $allImgs.eq(0).clone(true);
-let $imgLast = $allImgs.eq($allImgs.length - 1).clone(true);
-$slideWrap.append($imgFirst).prepend($imgLast);
 $slideWrap.css('transform', `translateX(-${WIDTH}px)`);
+timer = autoplay();
 
+// 事件监听
 $('.buttons').on('click', 'button',function(e){
     let index = $(e.currentTarget).index();
     goToSlide(index)
@@ -20,7 +20,23 @@ $('#next').on('click',function(){
 $('#previous').on('click',function(){
     goToSlide(current - 1)
 });
+$operation.on('mouseenter', function(){
+  window.clearInterval(timer);
+  console.log('轮播停止')
+});
+$operation.on('mouseleave', function(){
+  timer = autoplay();
+  console.log('轮播开始')
+});
 
+
+function fakeDom(){
+  let $imgFirst = $allImgs.eq(0).clone(true);
+  let $imgLast = $allImgs.eq($allImgs.length - 1).clone(true);
+  $slideWrap.append($imgFirst).prepend($imgLast);
+}
+
+// 很重要
 function goToSlide(index){
   if(index > $allImgs.length - 1){
     index = 0
@@ -48,3 +64,12 @@ function goToSlide(index){
     }
     current = index;
 }
+
+function autoplay(){
+  return setInterval(()=>{
+    goToSlide(current + 1);
+    current + 1
+  }, 3000)
+}
+
+
