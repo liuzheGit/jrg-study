@@ -28,6 +28,16 @@ $operation.on('mouseleave', function(){
   timer = autoplay();
   console.log('轮播开始')
 });
+// 页面不显示的时候 停止自动轮播
+//startSimulation 和 pauseSimulation 在其他地方定义
+function handleVisibilityChange() {
+  if (document.hidden) {
+    window.clearInterval(timer);
+  } else  {
+    timer = autoplay();
+  }
+}
+document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
 
 function fakeDom(){
