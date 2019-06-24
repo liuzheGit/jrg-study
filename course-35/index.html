@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>client</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<h1>Client</h1>
+<button id="x">点我</button>
+</body>
+</html>
+<script>
+  let xDom = document.getElementById('x')
+
+  xDom.onclick = function(){
+    let fnName = 'fn' + parseInt(Math.random()*1000000, 10);
+    let script = document.createElement('script');
+    script.src = 'http://frank.com:8001/xxx?callback=' + fnName;
+    document.body.appendChild(script);
+    window[fnName] = function(res){
+      console.log(res)
+    };
+    script.onload = function () {
+      console.log('动态script加载');
+      delete window[fnName];
+      script.remove()
+    };
+
+    script.onerror = function () {
+      console.log('动态script失败')
+      delete window[fnName]
+      script.remove()
+    }
+  }
+</script>
