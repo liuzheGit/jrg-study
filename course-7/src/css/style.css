@@ -38,7 +38,7 @@ nav ul > li.active .subMenu{ display: block; animation: slideMenu .3s; }
   }
 }
 /* 背景图+遮罩 */
-.banner{ height: 520px; background-image: url('../../images/banner.jpg'); background-position: center center; background-size: cover; /*position: relative;*/ }
+.banner{ height: 520px; background-image: url('../img/banner.jpg'); background-position: center center; background-size: cover; /*position: relative;*/ }
 .banner > .mask{ height: 100%; background-color: rgba(0,0,0,.4); }
 .max-content{ max-width: 930px; margin-left: auto; margin-right: auto; }
 /*简介主体*/
@@ -98,7 +98,8 @@ main .main-content{ /*border: 1px solid red;*/ margin-top: -340px; background: #
 #nav-progress-bar.state3 .inner-bar{ width: 70px; margin-left: 116px; }
 
 /*作品集*/
-.works{ margin-top: 40px; position: relative; }
+#works > h2{ margin-bottom: 40px; }
+.swiper-container{width: 100%;}
 /* loading*/
 .loading-wrap{ position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: #fff; z-index: 11; display: none;
   justify-content: center; align-items: center; }
