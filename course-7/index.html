@@ -5,17 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>方方的个人简历</title>
-  <link rel="stylesheet" href="./loading.css">
-  <link rel="stylesheet" href="./style.css">
-  <script src="//at.alicdn.com/t/font_1225673_iewr0wjg758.js"></script>
-  <style type="text/css">
-    .icon {
-      width: 1em; height: 1em;
-      vertical-align: -0.15em;
-      fill: currentColor;
-      overflow: hidden;
-    }
-  </style>
+  <link rel="stylesheet" href="./src/css/swiper.min.css">
+  <link rel="stylesheet" href="./src/js/loading.css">
+  <link rel="stylesheet" href="./src/css/style.css">
+  <script src="./src/js/Tween.js"></script>
+  <script src="./src/js/swiper.min.js"></script>
+  <script src="./src/font/iconfont.js"></script>
 </head>
 <body>
 <div class="loading-wrap active" id="loadingWrap">
@@ -108,7 +103,7 @@
   </div>
 </main>
 <section class="download-section">
-  <a href="./resume.pdf" download>下载PDF简历</a>
+  <a href="./src/pdf/resume.pdf" download>下载PDF简历</a>
 </section>
 <section class="profile-info">
   <p>方应杭， 资深前端工程师，资深前端讲师，现在在 饥人谷 教前端课程。</p>
@@ -127,21 +122,8 @@
 </section>
 <section data-x class="max-content portfolio" id="works">
   <h2>作品集</h2>
-  <nav>
-    <ol class="clearfix">
-      <li id="btn1">所有</li>
-      <li id="btn2">框架</li>
-      <li id="btn3">原生JS&CSS</li>
-    </ol>
-    <div id="nav-progress-bar" class="state1"><div class="inner-bar"></div></div>
-  </nav>
-  <div class="works state1" id="show-works">
-    <img src="./images/1.jpg" alt="作品1" class="photo work1 big">
-    <img src="./images/2.jpg" alt="作品2" class="photo work2 small">
-    <img src="./images/3.jpg" alt="作品3" class="photo work3 small">
-  </div>
+
 </section>
-<script src="https://cdn.bootcss.com/tween.js/r14/Tween.min.js"></script>
-<script src="./main.js"></script>
+<script src="./src/js/main.js"></script>
 </body>
 </html>
