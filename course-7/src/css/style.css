@@ -8,7 +8,7 @@ font-family: "Microsoft yahei;
 ul,ol{ list-style: none; }
 a{ text-decoration: none; color: inherit; }
 .top-nav-bar{ padding: 20px 0; position: fixed; top: 0; left: 0; right: 0;   /* 这样可以直接做到100% **/
-  width: 100%; z-index: 10;}
+  width: 100%; z-index: 10; transition: all .5s}
 .top-nav-bar.sticky{ background: white;  padding: 15px 0; box-shadow: 0 0 10px rgba(0,0,0,0.25)}
 .top-nav-bar.sticky a{color: #3d4451;}
 .top-nav-bar .header-inner{ padding: 0 16px; }
@@ -98,6 +98,7 @@ main .main-content{ /*border: 1px solid red;*/ margin-top: -340px; background: #
 #nav-progress-bar.state3 .inner-bar{ width: 70px; margin-left: 116px; }
 
 /*作品集*/
+#works{ margin-bottom: 100px; }
 #works > h2{ margin-bottom: 40px; }
 .swiper-container{width: 100%;}
 /* loading*/
