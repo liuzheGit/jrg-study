@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./src/css/style.css">
   <script src="./src/js/Tween.js"></script>
   <script src="./src/js/swiper.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.13.2/dist/av-min.js"></script>
   <script src="./src/font/iconfont.js"></script>
 </head>
 <body>
@@ -135,11 +136,32 @@
     </div>
   </div>
 </section>
+<section id="leaveMessage" class="max-content leaveMessage">
+  <h2>留言板</h2>
+  <div class="message-wrap">
+    <ul class="message-ul">
+    </ul>
+  </div>
+  <div class="form-wrap">
+    <form id="message-form">
+      <label>
+        昵称:
+        <input type="text" name="username">
+      </label>
+      <label>
+        留言:
+        <input type="text" name="content">
+      </label>
+      <button id="submit-button" type="submit">提交</button>
+    </form>
+  </div>
+</section>
 <script src="./src/js/init-swiper.js"></script>
 <script src="./src/js/init-loading.js"></script>
 <script src="./src/js/sticky-topbar.js"></script>
 <script src="./src/js/smoothly-navigation.js"></script>
 <script src="./src/js/trigger-topbar.js"></script>
 <script src="./src/js/auto-slide-up.js"></script>
+<script src="./src/js/message.js"></script>
 </body>
 </html>
