@@ -1,24 +1,6 @@
 !function () {
   let view = View('#message-form').get();
-  let model = {
-    init: function(){
-      var APP_ID = 'QEh7NSoCknPeaj6MPbFnC8M3-gzGzoHsz';
-      var APP_KEY = 'oTaXOEUI0ccsrUfAvXITAyhG';
-      AV.init({
-        appId: APP_ID,
-        appKey: APP_KEY
-      });
-    },
-    save: function({content, username}){
-      let Message = AV.Object.extend('Messages');
-      let message = new Message();
-      return message.save({ content: content,username: username})
-    },
-    fetch: function(){
-      let query = new AV.Query('Messages');
-      return query.find()
-    }
-  };
+  let model = Model({resourceName:'Messages'});
   let contorller = {
     view: null,
     model: null,
