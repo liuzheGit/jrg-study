@@ -1,5 +1,5 @@
 !function () {
-  let view = document.getElementById('message-form');
+  let view = View('#message-form');
   let model = {
     init: function(){
       var APP_ID = 'QEh7NSoCknPeaj6MPbFnC8M3-gzGzoHsz';
