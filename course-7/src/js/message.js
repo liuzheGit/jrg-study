@@ -1,13 +1,8 @@
 !function () {
   let view = View('#message-form').get();
   let model = Model({resourceName:'Messages'});
-  let contorller = {
-    view: null,
-    model: null,
-    init: function(view, model){
-      this.view = view;
-      this.model = model;
-      this.model.init();
+  let contorller = Controller({
+    bindEvents: function(){
       this.loadMessage();
       this.saveMessage();
     },
@@ -38,7 +33,7 @@
         })
       })
     }
-  };
+  });
 
   contorller.init(view, model)
 }.call();

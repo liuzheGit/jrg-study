@@ -1,21 +1,18 @@
 !function () {
   let view = View('[data-x]').getALl();
-  let controller = {
-    view: null,
-    init: function(view){
-      this.view = view;
-      this.addOffset();
-      setTimeout(()=>{
-        this.initScroll()
-      }, 800);
-      this.bindEvents();
-    },
+  let controller = Controller({
     addOffset: function(){
       for (let i = 0, len = this.view.length; i < len; i++) {
         this.view[i].classList.add('offset')
       }
     },
     bindEvents: function(){
+      this.addOffset();
+
+      setTimeout(()=>{
+        this.initScroll()
+      }, 800);
+
       window.addEventListener('scroll', (e)=> {
         let scrollY = window.scrollY;
         this.initScroll(scrollY)
@@ -38,7 +35,7 @@
       }
       this.view[minIndex].classList.remove('offset');
     }
-  };
+  });
   controller.init(view)
 
 }.call();

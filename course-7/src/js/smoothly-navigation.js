@@ -1,12 +1,6 @@
 !function () {
   let view = View('.triggerNav>ul>li>a').getALl();
-  let controller = {
-    view: null,
-    init: function(view){
-      this.view = view;
-      this.initRFA();
-      this.bindEvents();
-    },
+  let controller = Controller({
     initRFA: function(){
       function animate(time) {
         requestAnimationFrame(animate);
@@ -15,6 +9,7 @@
       requestAnimationFrame(animate);
     },
     bindEvents: function(){
+      this.initRFA();
       for (let i = 0, len = this.view.length; i < len; i++) {
         this.view[i].onclick = function (e) {
           e.preventDefault();
@@ -35,6 +30,6 @@
         }
       }
     }
-  };
+  });
   controller.init(view);
 }.call();

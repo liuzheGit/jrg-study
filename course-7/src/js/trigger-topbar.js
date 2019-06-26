@@ -1,12 +1,7 @@
 !function(){
   let view = View('.triggerNav > ul > li').getALl();
   view = [].slice.call(view);
-  let controller = {
-    view: null,
-    init: function(view){
-      this.view = view;
-      this.bindEvents();
-    },
+  let controller = Controller({
     bindEvents: function(){
       this.view.map(function(item){
         item.onmouseenter = function(e){
@@ -19,6 +14,6 @@
         }
       });
     }
-  };
+  });
   controller.init(view)
 }.call();

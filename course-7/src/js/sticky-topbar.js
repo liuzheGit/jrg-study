@@ -1,12 +1,7 @@
 !function(){
   // 会变的头部
   let view = View('#siteHead').get();
-  let controller = {
-    view: null,
-    init: function(view){
-      this.view = view;
-      this.bindEvents();
-    },
+  let controller = Controller({
     bindEvents: function(){
       // 可以用 箭头函数 简便 用外部this
       let that = this;
@@ -25,6 +20,7 @@
     deactive: function(){
       this.view.classList.remove('sticky');
     }
-  };
-  controller.init(view)
+  });
+  
+  controller.init(view);
 }.call();
