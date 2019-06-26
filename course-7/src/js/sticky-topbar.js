@@ -1,6 +1,6 @@
 !function(){
   // 会变的头部
-  let view = View('#siteHead');
+  let view = View('#siteHead').get();
   let controller = {
     view: null,
     init: function(view){

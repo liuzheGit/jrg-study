@@ -1,5 +1,5 @@
 !function(){
-  let view = document.querySelectorAll('.triggerNav > ul > li');
+  let view = View('.triggerNav > ul > li').getALl();
   view = [].slice.call(view);
   let controller = {
     view: null,

@@ -1,5 +1,5 @@
 !function () {
-  let view = View('#message-form');
+  let view = View('#message-form').get();
   let model = {
     init: function(){
       var APP_ID = 'QEh7NSoCknPeaj6MPbFnC8M3-gzGzoHsz';
@@ -31,7 +31,7 @@
     },
     loadMessage: function(){
       this.model.fetch().then((result)=>{
-        let messageUl = document.querySelector('.message-wrap>.message-ul');
+        let messageUl = View('.message-wrap>.message-ul').get();
         result.map((item)=>{
           let object = item.attributes;
           let liEle = document.createElement('li');
@@ -46,7 +46,7 @@
         let content = this.view.querySelector('input[name="content"]').value;
         let username = this.view.querySelector('input[name="username"]').value;
         this.model.save({content, username}).then((res)=>{
-          let messageUl = document.querySelector('.message-wrap>.message-ul');
+          let messageUl = View('.message-wrap>.message-ul').get();
           let object = res.attributes;
           let liEle = document.createElement('li');
           liEle.innerText = `${object.username}: ${object.content}`;

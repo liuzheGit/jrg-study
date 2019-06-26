@@ -1,5 +1,5 @@
 !function(){
-  let view = View('#loadingWrap');
+  let view = View('#loadingWrap').get();
   let controller = {
     view: null,
     init: function(view){

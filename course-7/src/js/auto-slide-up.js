@@ -1,5 +1,5 @@
 !function () {
-  let view = document.querySelectorAll('[data-x]');
+  let view = View('[data-x]').getALl();
   let controller = {
     view: null,
     init: function(view){

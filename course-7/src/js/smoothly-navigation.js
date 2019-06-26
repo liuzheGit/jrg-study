@@ -1,5 +1,5 @@
 !function () {
-  let view = document.querySelectorAll('.triggerNav>ul>li>a');
+  let view = View('.triggerNav>ul>li>a').getALl();
   let controller = {
     view: null,
     init: function(view){
