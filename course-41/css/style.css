@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+*{box-sizing: border-box;}
+/* 重置高亮, 再在代码中添加颜色, 做到用css的形式添加高亮代码 */
+.token.property,.token.punctuation, .token.selector, .token.comment {
+  color: #000;
+}
+@keyframes breathe {
+  0%{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  }
+  100%{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+#code{
+}
+
+
+

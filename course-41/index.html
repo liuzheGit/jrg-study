@@ -5,19 +5,7 @@
   <title>会动的简历</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="vendor/prism/prism.css">
-  <style>
-    .token.property,.token.punctuation, .token.selector, .token.comment {
-      color: #000;
-    }
-    @keyframes breathe {
-      0%{
-        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-      }
-      100%{
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
   <style id="styleTag"></style>
   <script src="vendor/prism/prism.js"></script>
 </head>
@@ -25,6 +13,9 @@
 <pre id="code">
 
 </pre>
-<script src="main.js"></script>
+<div id="paper">
+  <pre id="previewMd"></pre>
+</div>
+<script src="js/main.js"></script>
 </body>
 </html>
