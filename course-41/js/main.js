@@ -6,37 +6,26 @@ let resource = `
    * 让我用代码和动画给你展示吧!
    *
    **/
+   /* 首先添加一个背景颜色吧 */
+   body{background: gray;}
    
    /* 首先添加渐变效果, 显得没那么突兀了 */
-   *{
-     transition: all .4s;
-   }
+   *{ transition: all .4s; }
    
    /* 然后给代码添加一个边框吧 */
-   #code{
-     border: 1px solid gray;
-     padding: 15px;
-   }
+   #code{ border: 1px solid gray; padding: 15px; }
    
    /* 代码没有高亮? 加一个吧 */
-   .token.comment{
-     color: slategray;
-   }
-   .token.punctuation {
-     color: #999;
-   }
-   .token.selector {
-     color: #690;
-   }
-   .token.property {
-     color: #905;
-   }
+   .token.comment{ color: slategray; }
+   .token.punctuation { color: #999; }
+   .token.selector { color: #690; }
+   .token.property { color: #905; }
    
    #code{
      position: fixed;
      left: 0;
-     width: 50%;
-     height: 100vh;
+     width: 48%;
+     height: 98vh;
      overflow: auto;
      background: #282a35;
      transform: rotateY(5deg);
@@ -50,51 +39,99 @@ let resource2 = `
   **/ 
   #paper{
     position: fixed;
+    padding: 20px 0 0 20px;
     right: 0;
-    width: 50%;
-    height: 100vh;
+    width: 48%;
+    height: 98vh;
     background: white;
   }
   #paper > pre{
-    margin: 20px;
+    height: 100%;
+    overflow: auto;   
   }
 `;
 
 let md = `
-## 异步
+# 个人信息
 
-异步就是 不等结果 直接走之后的事情 
+- 胶布帝/男/1990 
+- 手机：135******** 
+- Email：goodman@gmail.com
+- QQ/微信号：6*******
+- 本科/萌鹿大学计算机系 
+- 工作年限：3年
+- 技术博客：http://blog.github.io
+- Github：http://github.com/geekcompany 
+- 期望职位：Web前端高级程序员，应用架构师
 
-很形象的 是 定闹钟 
+------
 
-回调可以拿到异步的结果
+# 工作经历
 
-- 回调是拿到异步结果的一种方式
-- 回调也可以拿同步结果
+## ABC公司 （ 2012年9月 ~ 2014年9月 ）
 
+### DEF项目 
 
+我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
 
-## 什么是异步
+### GHI项目 
 
-由于JavaScript是单线程的, 一次只能执行一个任务, 此时如果有一个任务特别消耗时间, 后边的任务则必须排队.  常见的就是 浏览器无响应 ( 假死 ) .
+我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
 
-为了解决这个问题, JavaScript将任务执行分为同步和异步:
+### 其他项目
 
- 同步:  一个任务执行完成前后边的都不执行, 就是等待结果后执行下一个
+（每个公司写2~3个核心项目就好了，如果你有非常大量的项目，那么按分类进行合并，每一类选一个典型写出来。其他的一笔带过即可。）
 
- 异步:  就是不等待结果, 后边的任务也可以执行, 此时如果想要获取异步中的结果的话, 可以通过回调的形式, 把要做的事情 通过函数传进去, 异步任务执行到可以完成的时候, call 传进来的函数. 执行要做的事情.
+## JKL公司 （ 2010年3月 ~ 2012年8月 ）
 
+### MNO项目 
 
+我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
 
-参考答案
+### PQR项目 
 
-- 异步是指一个不等一个任务返回结果（成功/失败/或其他结果），就直接执行下一句代码。
-  同步则是前者执行完拿到结果（返回值）了之后，再执行下一句代码
+我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
 
-## 什么是回调
+### 其他项目
 
-我有一个任务我没办法执行, 然后我给你, 你有了可执行的时机时 然后执行它. 
-`;
+（每个公司写2~3个核心项目就好了，如果你有非常大量的项目，那么按分类进行合并，每一类选一个典型写出来。其他的一笔带过即可。）
+
+------
+
+## 开源项目
+
+（对于程序员来讲，没有什么比Show me the code能有说服力了）
+
+- [STU](http://github.com/yourname/projectname)：项目的简要说明，Star和Fork数多的可以注明
+- [WXYZ](http://github.com/yourname/projectname)：项目的简要说明，Star和Fork数多的可以注明
+
+## 技术文章
+
+- [一个产品经理眼中的云计算：前生今世和未来](http://get.jobdeer.com/706.get)
+- [来自HeroKu的HTTP API 设计指南(翻译文章)](http://get.jobdeer.com/343.get)
+
+# 技能清单
+
+以下均为我熟练使用的技能
+
+- 前端框架：Vue/React/Bootstrap/小程序
+- 前端工具：Gulp/Sass/Less
+- 版本管理和自动化部署工具：Svn/Git/Webpack
+
+## 技能
+
+- CSS3
+- ES6
+- Vue
+- React
+- Ajax
+- Flex
+
+------
+
+# 致谢
+
+感谢您花时间阅读我的简历，期待能有机会和您共事。`;
 
 let resource3 = `
   /* markdown 格式的代码没有被识别
@@ -156,7 +193,7 @@ function writeCss(prefix, code ,fn){
       window.clearInterval(timerId);
       fn.call();
     }
-  }, 50)
+  }, 0)
 }
 
 
@@ -171,7 +208,7 @@ function writeMd(code, fn){
       window.clearInterval(timerId)
       fn.call()
     }
-  }, 50)
+  }, 0)
 }
 
 
