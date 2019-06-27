@@ -92,13 +92,32 @@ let md = `
 
 我有一个任务我没办法执行, 然后我给你, 你有了可执行的时机时 然后执行它. 
 `;
+
+let resource3 = `
+  /* markdown 格式的代码没有被识别
+  * 还不好看, 我们用 marked库 把它转化为html吧
+  **/
+`;
 writeCss('', resource, ()=>{
   writeCss(resource, resource2, ()=>{
     writeMd(md, ()=>{
-      console.log('写完了');
+      writeCss(resource + resource2, resource3, ()=>{
+        mdToHtml()
+      });
     })
   })
 });
+
+
+function mdToHtml(){
+  document.getElementById('previewMd').innerHTML =
+      marked(md)
+}
+
+
+
+
+
 function writeCss(prefix, code ,fn){
   let n = 0;
   let codeDom = document.getElementById('code');
