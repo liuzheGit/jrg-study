@@ -55,6 +55,9 @@ let resource2 = `
     height: 100vh;
     background: white;
   }
+  #paper > pre{
+    margin: 20px;
+  }
 `;
 
 let md = `
@@ -98,20 +101,40 @@ let resource3 = `
   * 还不好看, 我们用 marked库 把它转化为html吧
   **/
 `;
+let resource4 = `
+  #previewMd ul{
+    list-style: none;
+  }
+  #previewMd h1{
+    margin: 10px;
+  }
+  #previewMd p{
+    text-indent: 2em;
+    white-space: pre-line;
+  }
+  #previewMd h2{
+    margin: 5px;
+  }
+`
 writeCss('', resource, ()=>{
   writeCss(resource, resource2, ()=>{
     writeMd(md, ()=>{
       writeCss(resource + resource2, resource3, ()=>{
-        mdToHtml()
+        mdToHtml(()=>{
+          writeCss(resource + resource2 + resource3, resource4, ()=>{
+            console.log('终于TM写完了')
+          })
+        })
       });
     })
   })
 });
 
 
-function mdToHtml(){
+function mdToHtml(fn){
   document.getElementById('previewMd').innerHTML =
       marked(md)
+  fn.call();
 }
 
 
@@ -133,7 +156,7 @@ function writeCss(prefix, code ,fn){
       window.clearInterval(timerId);
       fn.call();
     }
-  }, 0)
+  }, 50)
 }
 
 
@@ -148,7 +171,7 @@ function writeMd(code, fn){
       window.clearInterval(timerId)
       fn.call()
     }
-  }, 0)
+  }, 50)
 }
 
 
