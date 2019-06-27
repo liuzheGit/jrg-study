@@ -22,6 +22,10 @@
         e.preventDefault();
         let content = this.view.querySelector('input[name="content"]').value;
         let username = this.view.querySelector('input[name="username"]').value;
+        if(content === '' || username === ''){
+          alert('请填写完整!');
+          return;
+        }
         this.model.save({content, username}).then((res)=>{
           let messageUl = View('.message-wrap>.message-ul').get();
           let object = res.attributes;
